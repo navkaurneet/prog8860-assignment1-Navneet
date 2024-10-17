@@ -1,16 +1,16 @@
 name: CI for Python Docker App
 
 on:
-  pull_request:
+  push:
     branches:
-      -Feature-CICD-Navneet
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout code
+      # Checkout code from the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -33,6 +33,10 @@ jobs:
       # Run Docker container
       - name: Run Docker container
         run: docker run -d -p 5000:5000 --name my-python-container my-python-app
+
+      # Show running container
+      - name: Show running container
+        run: docker ps -a
 
       # Stop Docker container
       - name: Stop Docker container
