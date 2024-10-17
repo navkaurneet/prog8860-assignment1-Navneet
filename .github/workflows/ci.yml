@@ -3,7 +3,7 @@ name: CI for Python Docker App
 on:
   push:
     branches:
-      - Feature-CICD-Navneet   # Triggers on push to the feature branch for testing
+      - main
 
 jobs:
   build:
